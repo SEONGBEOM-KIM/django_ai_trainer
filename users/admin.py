@@ -16,3 +16,10 @@ class CustomUserAdmin(UserAdmin):
             }
         ),
     )
+
+    list_display = ("username", "name", "school", "grade", "group", "number",
+                    "gender", "age", "teacher",)
+
+    list_filter = ("school", "gender", "grade",)
+
+    search_fields = ("name", "school", )

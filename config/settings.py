@@ -35,10 +35,10 @@ DJANGO_APPS = ['django.contrib.admin',
                'django.contrib.messages',
                'django.contrib.staticfiles', ]
 
-THIRD_PARTY_APPS = []
+THIRD_PARTY_APPS = ["django_seed"]
 
 PROJECT_APPS = ["core.apps.CoreConfig", "users.apps.UsersConfig",
-                "stats.apps.StatsConfig", "records.apps.RecordsConfig"]
+                "stats.apps.StatsConfig", "records.apps.RecordsConfig", "events.apps.EventsConfig"]
 
 INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS + THIRD_PARTY_APPS
 
@@ -57,7 +57,7 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, "templates")],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

@@ -37,8 +37,12 @@ class User(AbstractUser):
     grade = models.CharField(choices=NUMBER_CHOICES,
                              max_length=10, default=NUMBER_FIRST)
     group = models.CharField(choices=NUMBER_CHOICES, max_length=10, blank=True)
-    number = models.CharField(max_length=2, blank=True)
-    age = models.CharField(max_length=10, blank=True)
+    number = models.IntegerField(blank=True, null=True)
+    age = models.IntegerField(blank=True, null=True)
     gender = models.CharField(choices=GENDER_CHOICES, max_length=10, null=True)
     teacher = models.BooleanField(default=False)
     bio = models.TextField(blank=True)
+
+    def save(self, *args, **kwargs):
+        self.school = str.capitalize(self.school)
+        super().save(*args, **kwargs)
