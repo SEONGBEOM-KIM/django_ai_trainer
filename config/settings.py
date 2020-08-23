@@ -26,6 +26,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     "django-ai.eba-7hk37vph.ap-northeast-2.elasticbeanstalk.com",
+    "localhost",
 ]
 
 # Application definition
